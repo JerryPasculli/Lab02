@@ -23,8 +23,15 @@ while(True):
         print(daTradurre)
     if int(txtIn) == 3:
         parolina = input("Ok, quale parola devo cercare?")
-        stringa = t.handleWildCard(dizionario, parolina)
-        print(stringa)
+        conteggio = 0;
+        for i in range(len(parolina)):
+            if parolina[i] == "?":
+                conteggio += 1
+        if conteggio == 1:
+            stringa = t.handleWildCard(dizionario, parolina)
+            print(stringa)
+        else:
+            print("troppi punti interrogativi")
     if int(txtIn) == 4:
         open("dictionary.txt", "w").close()
         lista = list(dizionario.diz.keys())
